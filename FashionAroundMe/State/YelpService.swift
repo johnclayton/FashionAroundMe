@@ -74,7 +74,11 @@ extension YelpService.BusinessesInterface: TargetType {
 extension YelpService.Businesses {
 	func find(businessesNear location: CLLocation, query: String) -> Single<[Response.Business]> {
 		guard query.isEmpty == false else { return Single.just([]) }
-
+		let endpoint = YelpService.BusinessesInterface.search(near: location, query: query)
+		let decoder = JSONDecoder()
+		let results = try! decoder.decode(Response.self, from: endpoint.sampleData)
+		return Single.just(results)
+			.map { $0.businesses }
 		return provider().rx
 			.request(.search(near: location, query: query))
 			.do(onSuccess: { (response) in

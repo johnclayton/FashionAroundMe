@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CoreLocation
+import RxCoreLocation
 
 class BusinessesListViewController: UIViewController, UITableViewDelegate {
 
@@ -44,12 +45,6 @@ class BusinessesListViewController: UIViewController, UITableViewDelegate {
 				tableView.deselectRow(at: indexPath, animated: true)
 			})
 			.disposed(by: subscriptions)
-
-		let query = searchController.searchBar.rx.text.asSignal(onErrorJustReturn: nil)
-
-		// We can eventually send in selection events for pushing a detail VC
-//		let selection = tableView.rx.modelSelected(Business.self).asSignal()
-		viewModel.bind(query: query)
 	}
 
 	private var subscriptions = DisposeBag()
@@ -63,17 +58,47 @@ class BusinessesListViewModel {
 	}
 
 
-	var businesses: Driver<[Business]> {
-		fatalError("Unimplemented")
-//		return Driver.combineLatest(<#T##collection: Collection##Collection#>)
-//		return self.yelp.businesses(near: <#T##CLLocation#>, query: <#T##String#>).asDriver(onErrorJustReturn: [])
+	var businesses: Observable<[Business]> {
+//		let coffee = Business(id: "E8RJkjfdcwgtyoPMjQ_Olg", name: "Four Barrel Coffee", imageURL: "https://s3-media3.fl.yelpcdn.com/bphoto/NBm7cKsFwecEm82oP_-qUg/o.jpg")
+//		return Observable.just([coffee])
+
+		let location = locationManager.rx.location
+		let yelp = self.yelp
+		return Observable.combineLatest(location, remoteSearchTrigger.asObservable())
+			.flatMapLatest { (maybeLocation, maybeQuery) ->  Observable<[Business]>
+				in
+				guard let query = maybeQuery, query.isEmpty == false
+					, let location = maybeLocation else {
+					return Observable.just([])
+				}
+				return yelp.businesses(near: location, query: query)
+			}
 	}
 
+	private let remoteSearchTrigger = PublishRelay<String?>()
 
 	/// Bind events from view controller back to view model
-	func bind(query: Signal<String?>) {
+	func bind(querySignal: Signal<String?>) {
 		subscriptions = DisposeBag()
 
+		let queryRelay = BehaviorRelay<String?>(value: nil)
+		querySignal
+			.emit(to: queryRelay)
+			.disposed(by: subscriptions)
+
+		let remoteSearchThrottle = DispatchTimeInterval.seconds(1)
+		queryRelay
+			.throttle(remoteSearchThrottle, scheduler: MainScheduler.instance)
+			.asSignal(onErrorJustReturn: nil)
+			.emit(to: remoteSearchTrigger)
+			.disposed(by: subscriptions)
+
+		let backgroundScheduler = ConcurrentDispatchQueueScheduler.init(qos: .userInteractive)
+		remoteSearchTrigger
+			.observeOn(backgroundScheduler)
+			.subscribeOn(backgroundScheduler)
+			.subscribe()
+			.disposed(by: subscriptions)
 	}
 
 	private let yelp: State.Yelp

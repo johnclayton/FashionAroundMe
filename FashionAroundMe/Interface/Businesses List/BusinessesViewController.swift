@@ -29,7 +29,7 @@ class BusinessesViewController: UIViewController {
 		guard let resultsController = searchController.searchResultsController as? BusinessesListViewController else { return }
 		let query = searchController.searchBar.rx.text.asSignal(onErrorJustReturn: nil)
 		let resultsModel = BusinessesListViewModel(yelp: container.state.yelp, locationManager: container.locationManager)
-		resultsModel.bind(query: query)
+		resultsModel.bind(querySignal: query)
 		resultsController.viewModel = resultsModel
 	}
 

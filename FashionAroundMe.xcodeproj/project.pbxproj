@@ -26,6 +26,8 @@
 		A4468443246DCE98003440BF /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468442246DCE98003440BF /* BusinessTableViewCell.swift */; };
 		A4468446246DD3FC003440BF /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = A4468445246DD3FC003440BF /* RxCoreLocation */; };
 		A4468448246DD51A003440BF /* BusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468447246DD51A003440BF /* BusinessesViewController.swift */; };
+		A446844B246DE25A003440BF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446844A246DE25A003440BF /* MapKit.framework */; };
+		A446844D246DE261003440BF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446844C246DE261003440BF /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		A4468440246DCE05003440BF /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		A4468442246DCE98003440BF /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
 		A4468447246DD51A003440BF /* BusinessesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesViewController.swift; sourceTree = "<group>"; };
+		A446844A246DE25A003440BF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A446844C246DE261003440BF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				A4468432246DB533003440BF /* RxCocoa in Frameworks */,
 				A4468446246DD3FC003440BF /* RxCoreLocation in Frameworks */,
 				A4468430246DB533003440BF /* RxSwift in Frameworks */,
+				A446844D246DE261003440BF /* CoreLocation.framework in Frameworks */,
+				A446844B246DE25A003440BF /* MapKit.framework in Frameworks */,
 				A4468435246DB563003440BF /* Moya in Frameworks */,
 				A446842E246DB533003440BF /* RxRelay in Frameworks */,
 			);
@@ -105,6 +111,7 @@
 				A446840C246DB4D2003440BF /* FashionAroundMeTests */,
 				A4468417246DB4D2003440BF /* FashionAroundMeUITests */,
 				A44683F4246DB4CF003440BF /* Products */,
+				A4468449246DE25A003440BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +192,15 @@
 				A4468442246DCE98003440BF /* BusinessTableViewCell.swift */,
 			);
 			path = "Businesses List";
+			sourceTree = "<group>";
+		};
+		A4468449246DE25A003440BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A446844C246DE261003440BF /* CoreLocation.framework */,
+				A446844A246DE25A003440BF /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

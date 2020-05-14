@@ -18,8 +18,16 @@ class BusinessTableViewCell: UITableViewCell {
 	}
 	func bind(business: Business) {
 		self.textLabel?.text = business.name
-		//TODO: fetch the image and set it here
 		self.imageView?.image = UIImage(named: "placeholder")
+		let imageURL = URL(string: business.imageURL)!
+		let imageView = self.imageView
+		URLSession.shared.rx
+			.response(request: URLRequest(url: imageURL))
+			.subscribeOn(MainScheduler.instance)
+			.subscribe(onNext: { (response, data) in
+				imageView?.image = UIImage(data: data)
+			})
+			.disposed(by: subscriptions)
 	}
 
 	var subscriptions = DisposeBag()
