@@ -3,18 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A44683F7246DB4CF003440BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44683F6246DB4CF003440BF /* AppDelegate.swift */; };
 		A44683F9246DB4CF003440BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44683F8246DB4CF003440BF /* SceneDelegate.swift */; };
-		A44683FB246DB4CF003440BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44683FA246DB4CF003440BF /* ViewController.swift */; };
 		A44683FE246DB4CF003440BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44683FC246DB4CF003440BF /* Main.storyboard */; };
 		A4468400246DB4D2003440BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44683FF246DB4D2003440BF /* Assets.xcassets */; };
 		A4468403246DB4D2003440BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4468401246DB4D2003440BF /* LaunchScreen.storyboard */; };
-		A446840E246DB4D2003440BF /* FashionAroundMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446840D246DB4D2003440BF /* FashionAroundMeTests.swift */; };
 		A4468419246DB4D2003440BF /* FashionAroundMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468418246DB4D2003440BF /* FashionAroundMeUITests.swift */; };
+		A4468429246DB4EF003440BF /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468428246DB4EF003440BF /* Container.swift */; };
+		A446842B246DB4F9003440BF /* YelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446842A246DB4F9003440BF /* YelpService.swift */; };
+		A446842E246DB533003440BF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A446842D246DB533003440BF /* RxRelay */; };
+		A4468430246DB533003440BF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A446842F246DB533003440BF /* RxSwift */; };
+		A4468432246DB533003440BF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A4468431246DB533003440BF /* RxCocoa */; };
+		A4468435246DB563003440BF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A4468434246DB563003440BF /* Moya */; };
+		A4468437246DB563003440BF /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = A4468436246DB563003440BF /* RxMoya */; };
+		A4468439246DB919003440BF /* YelpServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468438246DB919003440BF /* YelpServiceTests.swift */; };
+		A446843E246DCBB0003440BF /* BusinessesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A446843D246DCBB0003440BF /* BusinessesListViewController.swift */; };
+		A4468441246DCE05003440BF /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468440246DCE05003440BF /* Stage.swift */; };
+		A4468443246DCE98003440BF /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468442246DCE98003440BF /* BusinessTableViewCell.swift */; };
+		A4468446246DD3FC003440BF /* RxCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = A4468445246DD3FC003440BF /* RxCoreLocation */; };
+		A4468448246DD51A003440BF /* BusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468447246DD51A003440BF /* BusinessesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +49,22 @@
 		A44683F3246DB4CF003440BF /* FashionAroundMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAroundMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44683F6246DB4CF003440BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A44683F8246DB4CF003440BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A44683FA246DB4CF003440BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A44683FD246DB4CF003440BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A44683FF246DB4D2003440BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4468402246DB4D2003440BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4468404246DB4D2003440BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4468409246DB4D2003440BF /* FashionAroundMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashionAroundMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A446840D246DB4D2003440BF /* FashionAroundMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionAroundMeTests.swift; sourceTree = "<group>"; };
 		A446840F246DB4D2003440BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4468414246DB4D2003440BF /* FashionAroundMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashionAroundMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4468418246DB4D2003440BF /* FashionAroundMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionAroundMeUITests.swift; sourceTree = "<group>"; };
 		A446841A246DB4D2003440BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4468428246DB4EF003440BF /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		A446842A246DB4F9003440BF /* YelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpService.swift; sourceTree = "<group>"; };
+		A4468438246DB919003440BF /* YelpServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpServiceTests.swift; sourceTree = "<group>"; };
+		A446843D246DCBB0003440BF /* BusinessesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesListViewController.swift; sourceTree = "<group>"; };
+		A4468440246DCE05003440BF /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		A4468442246DCE98003440BF /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		A4468447246DD51A003440BF /* BusinessesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4468437246DB563003440BF /* RxMoya in Frameworks */,
+				A4468432246DB533003440BF /* RxCocoa in Frameworks */,
+				A4468446246DD3FC003440BF /* RxCoreLocation in Frameworks */,
+				A4468430246DB533003440BF /* RxSwift in Frameworks */,
+				A4468435246DB563003440BF /* Moya in Frameworks */,
+				A446842E246DB533003440BF /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,10 +121,9 @@
 		A44683F5246DB4CF003440BF /* FashionAroundMe */ = {
 			isa = PBXGroup;
 			children = (
-				A44683F6246DB4CF003440BF /* AppDelegate.swift */,
-				A44683F8246DB4CF003440BF /* SceneDelegate.swift */,
-				A44683FA246DB4CF003440BF /* ViewController.swift */,
-				A44683FC246DB4CF003440BF /* Main.storyboard */,
+				A446843B246DCB76003440BF /* App */,
+				A446843C246DCB7E003440BF /* State */,
+				A446843A246DCB5E003440BF /* Interface */,
 				A44683FF246DB4D2003440BF /* Assets.xcassets */,
 				A4468401246DB4D2003440BF /* LaunchScreen.storyboard */,
 				A4468404246DB4D2003440BF /* Info.plist */,
@@ -113,7 +134,7 @@
 		A446840C246DB4D2003440BF /* FashionAroundMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A446840D246DB4D2003440BF /* FashionAroundMeTests.swift */,
+				A4468438246DB919003440BF /* YelpServiceTests.swift */,
 				A446840F246DB4D2003440BF /* Info.plist */,
 			);
 			path = FashionAroundMeTests;
@@ -126,6 +147,44 @@
 				A446841A246DB4D2003440BF /* Info.plist */,
 			);
 			path = FashionAroundMeUITests;
+			sourceTree = "<group>";
+		};
+		A446843A246DCB5E003440BF /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A44683FC246DB4CF003440BF /* Main.storyboard */,
+				A446843F246DCBB4003440BF /* Businesses List */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		A446843B246DCB76003440BF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A44683F6246DB4CF003440BF /* AppDelegate.swift */,
+				A44683F8246DB4CF003440BF /* SceneDelegate.swift */,
+				A4468440246DCE05003440BF /* Stage.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A446843C246DCB7E003440BF /* State */ = {
+			isa = PBXGroup;
+			children = (
+				A4468428246DB4EF003440BF /* Container.swift */,
+				A446842A246DB4F9003440BF /* YelpService.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		A446843F246DCBB4003440BF /* Businesses List */ = {
+			isa = PBXGroup;
+			children = (
+				A4468447246DD51A003440BF /* BusinessesViewController.swift */,
+				A446843D246DCBB0003440BF /* BusinessesListViewController.swift */,
+				A4468442246DCE98003440BF /* BusinessTableViewCell.swift */,
+			);
+			path = "Businesses List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +203,14 @@
 			dependencies = (
 			);
 			name = FashionAroundMe;
+			packageProductDependencies = (
+				A446842D246DB533003440BF /* RxRelay */,
+				A446842F246DB533003440BF /* RxSwift */,
+				A4468431246DB533003440BF /* RxCocoa */,
+				A4468434246DB563003440BF /* Moya */,
+				A4468436246DB563003440BF /* RxMoya */,
+				A4468445246DD3FC003440BF /* RxCoreLocation */,
+			);
 			productName = FashionAroundMe;
 			productReference = A44683F3246DB4CF003440BF /* FashionAroundMe.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +283,11 @@
 				Base,
 			);
 			mainGroup = A44683EA246DB4CF003440BF;
+			packageReferences = (
+				A446842C246DB533003440BF /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A4468433246DB563003440BF /* XCRemoteSwiftPackageReference "Moya" */,
+				A4468444246DD3FC003440BF /* XCRemoteSwiftPackageReference "RxCoreLocation" */,
+			);
 			productRefGroup = A44683F4246DB4CF003440BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,9 +331,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44683FB246DB4CF003440BF /* ViewController.swift in Sources */,
+				A4468441246DCE05003440BF /* Stage.swift in Sources */,
+				A4468443246DCE98003440BF /* BusinessTableViewCell.swift in Sources */,
 				A44683F7246DB4CF003440BF /* AppDelegate.swift in Sources */,
+				A446843E246DCBB0003440BF /* BusinessesListViewController.swift in Sources */,
+				A4468448246DD51A003440BF /* BusinessesViewController.swift in Sources */,
+				A4468429246DB4EF003440BF /* Container.swift in Sources */,
 				A44683F9246DB4CF003440BF /* SceneDelegate.swift in Sources */,
+				A446842B246DB4F9003440BF /* YelpService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A446840E246DB4D2003440BF /* FashionAroundMeTests.swift in Sources */,
+				A4468439246DB919003440BF /* YelpServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +667,66 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A446842C246DB533003440BF /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		A4468433246DB563003440BF /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
+		A4468444246DD3FC003440BF /* XCRemoteSwiftPackageReference "RxCoreLocation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxCoreLocation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A446842D246DB533003440BF /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A446842C246DB533003440BF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		A446842F246DB533003440BF /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A446842C246DB533003440BF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A4468431246DB533003440BF /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A446842C246DB533003440BF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A4468434246DB563003440BF /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4468433246DB563003440BF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A4468436246DB563003440BF /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4468433246DB563003440BF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		A4468445246DD3FC003440BF /* RxCoreLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4468444246DD3FC003440BF /* XCRemoteSwiftPackageReference "RxCoreLocation" */;
+			productName = RxCoreLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A44683EB246DB4CF003440BF /* Project object */;
 }
