@@ -19,11 +19,12 @@ class BusinessTableViewCell: UITableViewCell {
 	func bind(business: Business) {
 		self.textLabel?.text = business.name
 		self.imageView?.image = UIImage(named: "placeholder")
+		guard business.imageURL.isEmpty == false else { return }
 		let imageURL = URL(string: business.imageURL)!
 		let imageView = self.imageView
 		URLSession.shared.rx
 			.response(request: URLRequest(url: imageURL))
-			.subscribeOn(MainScheduler.instance)
+			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { (response, data) in
 				imageView?.image = UIImage(data: data)
 			})
