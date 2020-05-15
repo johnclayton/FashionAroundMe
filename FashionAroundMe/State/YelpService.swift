@@ -13,7 +13,7 @@ import RxMoya
 import CoreLocation
 
 private let clientID = "nIIBhrMRMZrpPPkVzPXHwQ"
-private let apiKey = "T5Uy1QJeiNEdk57lzh9sKkAhRGrDJewPffIvfW9i8wjnWVttDMgDhM-fS0NxlCu47dOQ62UBO83dB2siIV8PMG_YSVixvvMNpH6r4ixEZFu3z9PaU6Jc49zqk3q9XnYx"
+private let apiKey = "API_KEY"
 
 struct YelpService {
 	enum BusinessesInterface {
@@ -21,10 +21,9 @@ struct YelpService {
 		case fetch(id: String)
 	}
 
-	struct Businesses {
-
+	class Businesses {
+		let provider = MoyaProvider<YelpService.BusinessesInterface>(plugins: [NetworkLoggerPlugin()])
 	}
-
 }
 
 extension YelpService.BusinessesInterface: TargetType {
@@ -73,28 +72,17 @@ extension YelpService.BusinessesInterface: TargetType {
 
 extension YelpService.Businesses {
 	func find(businessesNear location: CLLocation, query: String) -> Single<[Response.Business]> {
-		guard query.isEmpty == false else { return Single.just([]) }
-		// Mock data
-		let endpoint = YelpService.BusinessesInterface.search(near: location, query: query)
-		let decoder = JSONDecoder()
-		let results = try! decoder.decode(Response.self, from: endpoint.sampleData)
-		return Single.just(results)
-			.map { $0.businesses }
-		// Working intermittently, darn
-		return provider().rx
+		let target = YelpService.BusinessesInterface.search(near: location, query: query)
+		return provider.rx
 			.request(.search(near: location, query: query))
-			.do(onSuccess: { (response) in
-				print(response)
-			}, onError: { (error) in
-				print(error)
-			})
+//			.debug(URL(target: target).absoluteString, trimOutput: false)
+//			.do(onSuccess: { (response) in
+//				print(response)
+//			}, onError: { (error) in
+//				print(error)
+//			})
 			.map(Response.self)
 			.map { $0.businesses }
-	}
-
-	private func provider() -> MoyaProvider<YelpService.BusinessesInterface> {
-		let provider = MoyaProvider<YelpService.BusinessesInterface>(plugins: [NetworkLoggerPlugin()])
-		return provider
 	}
 }
 

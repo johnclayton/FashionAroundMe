@@ -28,6 +28,7 @@
 		A4468448246DD51A003440BF /* BusinessesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4468447246DD51A003440BF /* BusinessesViewController.swift */; };
 		A446844B246DE25A003440BF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446844A246DE25A003440BF /* MapKit.framework */; };
 		A446844D246DE261003440BF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446844C246DE261003440BF /* CoreLocation.framework */; };
+		A4F5BCB7246EC80C00BEC907 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A4F5BCB6246EC80C00BEC907 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A4468447246DD51A003440BF /* BusinessesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesViewController.swift; sourceTree = "<group>"; };
 		A446844A246DE25A003440BF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A446844C246DE261003440BF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A4F5BCB6246EC80C00BEC907 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		A44683EA246DB4CF003440BF = {
 			isa = PBXGroup;
 			children = (
+				A4F5BCB6246EC80C00BEC907 /* README.md */,
 				A44683F5246DB4CF003440BF /* FashionAroundMe */,
 				A446840C246DB4D2003440BF /* FashionAroundMeTests */,
 				A4468417246DB4D2003440BF /* FashionAroundMeUITests */,
@@ -322,6 +325,7 @@
 			files = (
 				A4468403246DB4D2003440BF /* LaunchScreen.storyboard in Resources */,
 				A4468400246DB4D2003440BF /* Assets.xcassets in Resources */,
+				A4F5BCB7246EC80C00BEC907 /* README.md in Resources */,
 				A44683FE246DB4CF003440BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,15 +531,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H35MH4QY93;
+				DEVELOPMENT_TEAM = 6HWCNN3J5J;
 				INFOPLIST_FILE = FashionAroundMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.johnclayton.FashionAroundMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fivesquaresoftware.FashionAroundMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -545,15 +551,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H35MH4QY93;
+				DEVELOPMENT_TEAM = 6HWCNN3J5J;
 				INFOPLIST_FILE = FashionAroundMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.johnclayton.FashionAroundMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fivesquaresoftware.FashionAroundMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

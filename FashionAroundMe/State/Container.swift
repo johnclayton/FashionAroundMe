@@ -22,15 +22,13 @@ class Container {
 	lazy var state = State()
 }
 
-typealias Business = State.Yelp.Business
+typealias Business = YelpService.Businesses.Response.Business
 
 class State {
 
 	lazy var yelp = Yelp()
 
 	class Yelp {
-		typealias Business = YelpService.Businesses.Response.Business
-
 		func businesses(near location: CLLocation, query: String) -> Observable<[Business]> {
 			guard query.isEmpty == false else { return Observable.just([]) }
 			let key = Query(location: location, query: query)
@@ -41,14 +39,13 @@ class State {
 				.subscribe(onSuccess: { result in
 					self.update(newResults: result, forQuery: key)
 				})
+
 			// Return cached results or a placeholder that the subscriber can receive updates on
 			return businessesByQuerySubject
 				.map { $0[key] ?? [] }
 		}
 
-		private lazy var businessesService = YelpService.Businesses()
-
-
+		private let businessesService = YelpService.Businesses()
 		private struct Query: Hashable {
 			let location: CLLocation
 			let query: String
@@ -59,5 +56,7 @@ class State {
 			results[query] = newResults
 			businessesByQuerySubject.onNext(results)
 		}
+
+		var subscriptions = DisposeBag()
 	}
 }

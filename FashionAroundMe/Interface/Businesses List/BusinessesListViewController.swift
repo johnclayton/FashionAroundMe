@@ -34,7 +34,7 @@ class BusinessesListViewController: UIViewController, UITableViewDelegate {
 		tableView.delegate = self
 		tableView.dataSource = nil
 
-		viewModel.businesses.asObservable().bind(to: tableView.rx.items(cellIdentifier: "BusinessTableViewCell")) { index, business, cell in
+		viewModel.businesses.bind(to: tableView.rx.items(cellIdentifier: "BusinessTableViewCell")) { index, business, cell in
 			guard let businessCell = cell as? BusinessTableViewCell else { return }
 			businessCell.bind(business: business)
 		}
@@ -62,7 +62,7 @@ class BusinessesListViewModel {
 //		let coffee = Business(id: "E8RJkjfdcwgtyoPMjQ_Olg", name: "Four Barrel Coffee", imageURL: "https://s3-media3.fl.yelpcdn.com/bphoto/NBm7cKsFwecEm82oP_-qUg/o.jpg")
 //		return Observable.just([coffee])
 
-		let location = locationManager.rx.location
+		let location = locationManager.rx.location.take(1)
 		let yelp = self.yelp
 		return Observable.combineLatest(location, remoteSearchTrigger.asObservable())
 			.flatMapLatest { (maybeLocation, maybeQuery) ->  Observable<[Business]>
@@ -73,6 +73,11 @@ class BusinessesListViewModel {
 				}
 				return yelp.businesses(near: location, query: query)
 			}
+			.do(onNext: { (result) in
+				print(result)
+			}, onError: { (error) in
+				print(error)
+			})
 	}
 
 	private let remoteSearchTrigger = PublishRelay<String?>()
@@ -86,9 +91,9 @@ class BusinessesListViewModel {
 			.emit(to: queryRelay)
 			.disposed(by: subscriptions)
 
-		let remoteSearchThrottle = DispatchTimeInterval.seconds(1)
+		let remoteSearchThrottle = DispatchTimeInterval.milliseconds(200)
 		queryRelay
-			.throttle(remoteSearchThrottle, scheduler: MainScheduler.instance)
+			.debounce(remoteSearchThrottle, scheduler: MainScheduler.instance)
 			.asSignal(onErrorJustReturn: nil)
 			.emit(to: remoteSearchTrigger)
 			.disposed(by: subscriptions)

@@ -58,8 +58,8 @@ class YelpServiceTests: XCTestCase {
 			}, onError: { error in
 				XCTFail("error: \(error)")
 			})
-//		wait(for: [expectation], timeout: 10.0)
-//		XCTAssertNotNil(receivedResponse)
+		wait(for: [expectation], timeout: 10.0)
+		XCTAssertNotNil(receivedResponse)
 	}
 
 
